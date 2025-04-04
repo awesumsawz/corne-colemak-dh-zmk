@@ -11,6 +11,134 @@
 #include <dt-bindings/zmk/pointing.h>
 
 / {
+    behaviors {
+        mt_custom: mod_tap_custom {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <180>;             // Adjust this value to your preference
+            quick-tap-ms = <150>;
+            global-quick-tap;                    // This allows for repeat taps without hold
+            bindings = <&kp>, <&kp>;
+            hold-trigger-on-release;             // Wait for other key release before deciding hold/tap
+        };
+
+        // Home row mod-tap base behavior
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <180>;
+            quick-tap-ms = <150>;
+            global-quick-tap;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-on-release;
+        };
+
+        // Tap dance behaviors for home row
+        td_a: tap_dance_a {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&hm LEFT_ALT A>, <&kt A>;
+        };
+
+        td_s: tap_dance_s {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&hm LEFT_GUI S>, <&kt S>;
+        };
+
+        td_d: tap_dance_d {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&hm LEFT_SHIFT D>, <&kt D>;
+        };
+
+        td_f: tap_dance_f {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&hm LCTRL F>, <&kt F>;
+        };
+
+        td_g: tap_dance_g {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&hm LS(LA(LC(LEFT_GUI))) G>, <&kt G>;
+        };
+
+        td_h: tap_dance_h {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&hm RS(RA(RC(RIGHT_GUI))) H>, <&kt H>;
+        };
+
+        td_j: tap_dance_j {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&hm RCTRL J>, <&kt J>;
+        };
+
+        td_k: tap_dance_k {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&hm RIGHT_SHIFT K>, <&kt K>;
+        };
+
+        td_l: tap_dance_l {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&hm RIGHT_GUI L>, <&kt L>;
+        };
+
+        td_semi: tap_dance_semi {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&hm RIGHT_ALT SEMICOLON>, <&kt SEMICOLON>;
+        };
+
+        td_bspc: tap_dance_backspace {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&bspc_hold_tap>, <&kt BACKSPACE>;
+        };
+
+        td_bspc_left: tap_dance_backspace_left {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&bspc_hold_tap_left>, <&kt BACKSPACE>;
+        };
+
+        bspc_hold_tap: backspace_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            bindings = <&kp>, <&kp>;
+        };
+
+        bspc_hold_tap_left: backspace_hold_tap_left {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
     combos {
         compatible = "zmk,combos";
 
@@ -37,9 +165,9 @@
 
             bindings = <
 &kp TAB                  &kp Q           &kp W           &kp E             &kp R                       &kp T                         &kp Y                        &kp U                        &kp I              &kp O            &kp P                    &kp BACKSLASH
-&mt LEFT_CONTROL ESCAPE  &mt LEFT_ALT A  &mt LEFT_GUI S  &mt LEFT_SHIFT D  &mt LCTRL F                 &mt LS(LA(LC(LEFT_GUI))) G    &mt RS(RA(RC(RIGHT_GUI))) H  &mt RCTRL J                  &mt RIGHT_SHIFT K  &mt RIGHT_GUI L  &mt RIGHT_ALT SEMICOLON  &kp SQT
+&mt LEFT_CONTROL ESCAPE  &td_a           &td_s           &td_d             &td_f                       &td_g                         &td_h                        &td_j                        &td_k              &td_l            &td_semi                 &kp SQT
 &kp LSHFT                &kp Z           &kp X           &kp C             &kp V                       &kp B                         &kp N                        &kp M                        &kp COMMA          &kp DOT          &kp FSLH                 &kp RIGHT_SHIFT
-                                                         &mo 1             &mt LEFT_COMMAND BACKSPACE  &kp ENTER                     &kp SPACE                    &mt RIGHT_COMMAND BACKSPACE  &mo 1
+                                                         &mo 1             &td_bspc_left               &kp ENTER                     &kp SPACE                    &td_bspc                     &mo 1
             >;
         };
 
