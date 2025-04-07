@@ -12,19 +12,19 @@
 #include <dt-bindings/zmk/pointing.h>
 
 / {
-    combos {
-        compatible = "zmk,combos";
-
-        left-layer2-toggle {
-            bindings = <&tog 2>;
-            key-positions = <37 38>;
-        };
-
-        right-layer2-toggle {
-            bindings = <&tog 2>;
-            key-positions = <39 40>;
-        };
-    };
+    /* combos { */
+    /*     compatible = "zmk,combos"; */
+    /**/
+    /*     left-layer2-toggle { */
+    /*         bindings = <&tog 2>; */
+    /*         key-positions = <37 38>; */
+    /*     }; */
+    /**/
+    /*     right-layer2-toggle { */
+    /*         bindings = <&tog 2>; */
+    /*         key-positions = <39 40>; */
+    /*     }; */
+    /* }; */
 
     behaviors {
         hmr: hmr {
@@ -106,7 +106,7 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp LS(N5)     &kp LS(N1)     &kp LS(N2)     &kp LBKT        &kp RBKT        &kp LS(N8)    &kp N1        &kp N2        &kp N3        &kp N4        &kp N5        &trans
+&kp LS(N5)     &kp LS(N1)     &kp LS(N2)     &kp LBKT        &kp RBKT        &kp LS(N8)    &kp N1        &kp N2        &kp N3        &kp N4        &kp N5        &tog 2
 &kp LS(N3)     &kp MINUS      &kp LS(MINUS)  &kp LS(N9)      &kp LS(N0)      &kp EQUAL     &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp GRAVE     &trans
 &kp LS(EQUAL)  &kp LS(GRAVE)  &kp LS(N4)     &kp LS(LBKT)    &kp LS(RBKT)    &kp LS(N7)    &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        &trans
                                              &bl BL_DEC      &bl BL_INC      &bl BL_TOG    &bl BL_TOG    &bl BL_INC    &bl BL_DEC
