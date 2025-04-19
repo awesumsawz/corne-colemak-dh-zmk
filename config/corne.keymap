@@ -101,8 +101,8 @@
 
             bindings = <
 &kp TAB                    &kp Q             &kp W             &kp F              &kp P                         &kp B                          &kp J                         &kp L                          &kp U               &kp Y              &kp SEMI           &kp BACKSLASH
-&hmls LEFT_CONTROL ESCAPE  &hmls LEFT_ALT A  &hmls LEFT_GUI R  &hml LEFT_SHIFT S  &hml LCTRL T                  &hml LS(LA(LC(LEFT_GUI))) G    &hmr RS(RA(RC(RIGHT_GUI))) K  &hmr RCTRL N                   &hmr RIGHT_SHIFT E  &hmrs RIGHT_GUI I  &hmrs RIGHT_ALT O  &kp SQT
-&kp LSHFT                  &kp Z             &kp X             &kp C              &kp D                         &kp V                          &kp M                         &kp H                          &kp COMMA           &kp DOT            &kp FSLH           &kp RIGHT_SHIFT
+&hmls LEFT_CONTROL ESCAPE  &hmls LEFT_ALT A  &hmls LEFT_GUI R  &hml LEFT_SHIFT S  &hml LCTRL T                  &hml LS(LA(LC(LEFT_GUI))) G    &hmr RS(RA(RC(RIGHT_GUI))) M  &hmr RCTRL N                   &hmr RIGHT_SHIFT E  &hmrs RIGHT_GUI I  &hmrs RIGHT_ALT O  &kp SQT
+&kp LSHFT                  &kp Z             &kp X             &kp C              &kp D                         &kp V                          &kp K                         &kp H                          &kp COMMA           &kp DOT            &kp FSLH           &kp RIGHT_SHIFT
                                                                &mo 1              &hmls LEFT_COMMAND BACKSPACE  &kp ENTER                      &kp SPACE                     &hmrs RIGHT_COMMAND BACKSPACE  &mo 1
             >;
         };
